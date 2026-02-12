@@ -2,7 +2,7 @@ import { CheckCircle2 } from "lucide-react"
 
 export default function WhyHireMe() {
   const reasons = [
-    "Full-stack expertise with hands-on experience in modern technologies",
+    "Full-stack expertise(MERN) with hands-on experience in modern technologies",
     "Strong problem-solving skills and ability to break down complex challenges",
     "Commitment to clean, maintainable code and best practices",
     "Fast learner who stays updated with industry trends",

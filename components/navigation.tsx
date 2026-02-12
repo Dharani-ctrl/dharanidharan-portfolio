@@ -70,6 +70,7 @@ export default function Navigation() {
         <div className="flex justify-between items-center h-16">
           
           {/* Logo - Always visible now to balance the icon on the right */}
+          
           <div className="flex-shrink-0">
             <a href="#" className="text-2xl font-bold gradient-text hover:opacity-80 transition-opacity">
               Dharan.dev

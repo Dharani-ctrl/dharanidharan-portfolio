@@ -1,10 +1,47 @@
 "use client"
 
 import { useEffect, useRef } from "react"
-import { Code2, Database, Layout, Wrench } from "lucide-react"
+import { 
+  SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiHtml5, SiCss3,
+  SiNodedotjs, SiPython, SiPostgresql, SiMongodb, SiGraphql, SiExpress,
+  SiFigma, SiAdobexd, SiFramer, SiAmazonwebservices, SiDocker, SiKubernetes,
+  SiGithubactions, SiJest, SiWebpack, SiFirebase, SiVercel,
+  SiThreedotjs, SiAdobeaftereffects, SiBlender, SiGreensock, SiGit
+} from "react-icons/si"
+import { VscCode } from "react-icons/vsc" 
+import { Layout, Database, Wrench, Cloud, Sparkles, Code2 } from "lucide-react"
+
+// Individual Skill Item Component with Hover & Float Animations
+const SkillBadge = ({ name, color, icon: Icon }: { name: string; color: string; icon: any }) => (
+  <div className="group/skill flex flex-col items-center justify-center gap-3">
+    <div 
+      className="relative w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center rounded-2xl transition-all duration-500 group-hover/skill:-translate-y-3 group-hover/skill:rotate-3"
+      style={{ 
+        backgroundColor: `${color}10`, 
+        border: `1px solid ${color}20`,
+      }}
+    >
+      {/* Dynamic Glow Aura */}
+      <div 
+        className="absolute inset-0 rounded-2xl opacity-0 group-hover/skill:opacity-40 blur-2xl transition-opacity duration-500 scale-150"
+        style={{ backgroundColor: color }}
+      />
+      
+      {/* Icon with subtle pulse on hover */}
+      <Icon 
+        className="text-2xl sm:text-3xl z-10 transition-all duration-500 group-hover/skill:scale-110 group-hover/skill:drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]" 
+        style={{ color: color }} 
+      />
+    </div>
+    
+    <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.2em] text-muted-foreground group-hover/skill:text-foreground transition-colors duration-300 text-center">
+      {name}
+    </span>
+  </div>
+)
 
 export default function Skills() {
-  const sectionRef = useRef(null)
+  const sectionRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -14,8 +51,9 @@ export default function Skills() {
             const items = entry.target.querySelectorAll(".stagger-item")
             items.forEach((item, index) => {
               setTimeout(() => {
-                item.style.animation = "stagger 0.6s ease-out forwards"
-              }, index * 100)
+                (item as HTMLElement).style.opacity = "1";
+                (item as HTMLElement).style.transform = "translateY(0) scale(1)";
+              }, index * 150) // Stagger speed
             })
             observer.unobserve(entry.target)
           }
@@ -23,11 +61,7 @@ export default function Skills() {
       },
       { threshold: 0.1 },
     )
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current)
-    }
-
+    if (sectionRef.current) observer.observe(sectionRef.current)
     return () => observer.disconnect()
   }, [])
 
@@ -36,156 +70,99 @@ export default function Skills() {
       title: "Frontend Development",
       icon: Layout,
       skills: [
-        { name: "React", color: "#61DAFB", hoverBg: "from-blue-400 to-cyan-300" },
-        { name: "Next.js", color: "#000000", hoverBg: "from-gray-800 to-black" },
-        { name: "TypeScript", color: "#3178C6", hoverBg: "from-blue-500 to-blue-600" },
-        { name: "Tailwind CSS", color: "#06B6D4", hoverBg: "from-cyan-400 to-cyan-500" },
-        { name: "HTML5", color: "#E34C26", hoverBg: "from-orange-500 to-red-500" },
-        { name: "CSS3", color: "#1572B6", hoverBg: "from-blue-400 to-blue-600" },
+        { name: "React", color: "#61DAFB", icon: SiReact },
+        { name: "Next.js", color: "#FFFFFF", icon: SiNextdotjs },
+        { name: "TypeScript", color: "#3178C6", icon: SiTypescript },
+        { name: "Tailwind", color: "#06B6D4", icon: SiTailwindcss },
+        { name: "HTML5", color: "#E34C26", icon: SiHtml5 },
+        { name: "CSS3", color: "#1572B6", icon: SiCss3 },
       ],
     },
     {
       title: "Backend Development",
-      icon: Code2,
+      icon: Database,
       skills: [
-        { name: "Node.js", color: "#339933", hoverBg: "from-green-500 to-green-600" },
-        { name: "Python", color: "#3776AB", hoverBg: "from-blue-400 to-blue-600" },
-        { name: "PostgreSQL", color: "#336791", hoverBg: "from-blue-500 to-indigo-600" },
-        { name: "MongoDB", color: "#13AA52", hoverBg: "from-green-500 to-emerald-600" },
-        { name: "REST APIs", color: "#FF6C37", hoverBg: "from-orange-400 to-orange-600" },
-        { name: "GraphQL", color: "#E10098", hoverBg: "from-pink-500 to-red-500" },
+        { name: "Node.js", color: "#339933", icon: SiNodedotjs },
+        { name: "Python", color: "#3776AB", icon: SiPython },
+        { name: "Postgres", color: "#336791", icon: SiPostgresql },
+        { name: "MongoDB", color: "#47A248", icon: SiMongodb },
+        { name: "Express", color: "#828282", icon: SiExpress },
+        { name: "GraphQL", color: "#E10098", icon: SiGraphql },
       ],
     },
     {
       title: "UI/UX Design",
-      icon: Layout,
+      icon: Sparkles,
       skills: [
-        { name: "Figma", color: "#F24E1E", hoverBg: "from-orange-500 to-red-500" },
-        { name: "Responsive Design", color: "#00D4FF", hoverBg: "from-cyan-400 to-blue-500" },
-        { name: "Wireframing", color: "#667EEA", hoverBg: "from-indigo-500 to-purple-600" },
-        { name: "Prototyping", color: "#9B59B6", hoverBg: "from-purple-500 to-pink-600" },
+        { name: "Figma", color: "#F24E1E", icon: SiFigma },
+        { name: "Framer", color: "#0055FF", icon: SiFramer },
+        { name: "Adobe XD", color: "#FF61F6", icon: SiAdobexd },
+        { name: "Responsive", color: "#00D4FF", icon: SiCss3 },
       ],
     },
     {
       title: "Cloud & DevOps",
-      icon: Wrench,
+      icon: Cloud,
       skills: [
-        { name: "AWS", color: "#FF9900", hoverBg: "from-orange-400 to-yellow-500" },
-        { name: "Docker", color: "#2496ED", hoverBg: "from-blue-500 to-cyan-600" },
-        { name: "CI/CD", color: "#E95D2A", hoverBg: "from-orange-500 to-red-600" },
-        { name: "Kubernetes", color: "#326CE5", hoverBg: "from-blue-500 to-indigo-600" },
+        { name: "AWS", color: "#FF9900", icon: SiAmazonwebservices },
+        { name: "Docker", color: "#2496ED", icon: SiDocker },
+        { name: "CI/CD", color: "#E95D2A", icon: SiGithubactions },
+        { name: "Kubernetes", color: "#326CE5", icon: SiKubernetes },
       ],
     },
     {
       title: "Tools & Technologies",
       icon: Wrench,
       skills: [
-        { name: "VS Code", color: "#007ACC", hoverBg: "from-blue-500 to-blue-700" },
-        { name: "Jest", color: "#C21325", hoverBg: "from-red-500 to-pink-600" },
-        { name: "Webpack", color: "#8DD6F9", hoverBg: "from-blue-300 to-cyan-400" },
-        { name: "Redux", color: "#764ABC", hoverBg: "from-purple-500 to-indigo-600" },
-        { name: "Firebase", color: "#FFA500", hoverBg: "from-yellow-400 to-orange-600" },
-        { name: "Vercel", color: "#000000", hoverBg: "from-gray-800 to-black" },
+        { name: "VS Code", color: "#007ACC", icon: VscCode },
+        { name: "Git", color: "#F05032", icon: SiGit },
+        { name: "Jest", color: "#C21325", icon: SiJest },
+        { name: "Webpack", color: "#8DD6F9", icon: SiWebpack },
+        { name: "Firebase", color: "#FFA500", icon: SiFirebase },
+        { name: "Vercel", color: "#FFFFFF", icon: SiVercel },
       ],
     },
-    {
-      title: "Creative Skills",
-      icon: Code2,
-      skills: [
-        { name: "UI Animation", color: "#00D4FF", hoverBg: "from-cyan-400 to-blue-500" },
-        { name: "SVG Animation", color: "#FF6B6B", hoverBg: "from-red-400 to-pink-500" },
-        { name: "3D Modeling", color: "#8338EC", hoverBg: "from-purple-500 to-pink-600" },
-        { name: "Motion Graphics", color: "#FFBE0B", hoverBg: "from-yellow-400 to-orange-500" },
-      ],
-    },
+
   ]
 
   return (
-    <section id="skills" className="py-24 px-4 sm:px-6 lg:px-8 relative" ref={sectionRef}>
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-20 space-y-4">
-          <h2 className="text-4xl sm:text-5xl font-bold gradient-text">Skills & Expertise</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Comprehensive toolkit built over years of development, always expanding and learning.
-          </p>
+    <section id="skills" className="py-24 px-4 sm:px-6 lg:px-8 relative bg-background overflow-hidden" ref={sectionRef}>
+      
+      {/* Animated Background Orbs */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
+        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/5 rounded-full blur-[120px] animate-pulse" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-blue-500/5 rounded-full blur-[120px] animate-pulse delay-700" />
+      </div>
 
-          <div className="flex justify-center gap-8 mt-12 flex-wrap">
-            {[
-              { icon: Code2, color: "primary", delay: 0 },
-              { icon: Database, color: "accent", delay: 1 },
-              { icon: Layout, color: "primary", delay: 2 },
-              { icon: Wrench, color: "accent", delay: 3 },
-            ].map((item, idx) => {
-              const Icon = item.icon
-              return (
-                <div
-                  key={idx}
-                  className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center float"
-                  style={{ animationDelay: `${item.delay}s` }}
-                >
-                  <Icon className="text-primary" size={24} />
-                </div>
-              )
-            })}
-          </div>
+      <div className="max-w-7xl mx-auto">
+        <div className="flex flex-col items-center mb-20 text-center">
+          <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-4 stagger-item opacity-0 translate-y-10 transition-all duration-1000">
+            Skills & Expertise
+          </h2>
+          <div className="h-1 w-24 bg-primary rounded-full mb-6 stagger-item opacity-0 translate-y-10 transition-all duration-1000 delay-100" />
+          <p className="text-muted-foreground max-w-2xl stagger-item opacity-0 translate-y-10 transition-all duration-1000 delay-200">
+            A specialized stack focused on modern performance and user-centric design.
+          </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {skillCategories.map((category, idx) => {
             const Icon = category.icon
             return (
-              <div
-                key={idx}
-                className="stagger-item p-6 rounded-lg bg-secondary/20 border border-primary/30 transition-all duration-300 hover:border-primary/80 group hover-glow"
+              <div 
+                key={idx} 
+                className="stagger-item opacity-0 translate-y-20 scale-95 transition-all duration-1000 ease-out p-8 rounded-3xl bg-secondary/5 border border-white/5 hover:border-primary/30 hover:bg-secondary/10 hover:shadow-[0_0_30px_rgba(0,0,0,0.2)] group/card"
               >
-                <div className="w-14 h-14 rounded-lg bg-primary/20 flex items-center justify-center mb-4 group-hover:bg-primary/30 transition-all group-hover:scale-110 group-hover:rotate-12">
-                  <Icon className="text-primary" size={28} />
+                <div className="flex items-center gap-4 mb-10 transition-transform duration-500 group-hover/card:translate-x-2">
+                  <div className="p-3 rounded-xl bg-primary/10 text-primary group-hover/card:bg-primary group-hover/card:text-white transition-all duration-500">
+                    <Icon size={22} />
+                  </div>
+                  <h3 className="text-xl font-bold tracking-tight">{category.title}</h3>
                 </div>
 
-                <h3 className="text-lg font-semibold mb-4 text-foreground group-hover:text-primary transition-colors">
-                  {category.title}
-                </h3>
-
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                <div className="grid grid-cols-3 gap-y-10 gap-x-2">
                   {category.skills.map((skill, i) => (
-                    <div
-                      key={i}
-                      className="group relative p-4 rounded-lg border border-primary/20 transition-all duration-300 hover:scale-110 cursor-pointer overflow-hidden flex flex-col items-center justify-center gap-2 min-h-24"
-                      style={{
-                        backgroundColor: `${typeof skill === "object" ? skill.color : skill}20`,
-                        borderColor: typeof skill === "object" ? skill.color : skill,
-                      }}
-                    >
-                      {/* Animated background on hover */}
-                      <div
-                        className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-300"
-                        style={{
-                          background: typeof skill === "object" ? `linear-gradient(135deg, ${skill.color} 0%, ${skill.color}80 100%)` : `linear-gradient(135deg, ${skill} 0%, ${skill}80 100%)`,
-                        }}
-                      ></div>
-
-                      {/* Icon/Symbol - using colored circle */}
-                      <div
-                        className="w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm relative z-10 transition-all duration-300 group-hover:scale-125 group-hover:shadow-lg"
-                        style={{
-                          backgroundColor: typeof skill === "object" ? skill.color : skill,
-                          color: "#0a0e27",
-                          boxShadow: `0 0 15px ${typeof skill === "object" ? skill.color : skill}40`,
-                        }}
-                      >
-                        {(typeof skill === "object" ? skill.name : skill).charAt(0).toUpperCase()}
-                      </div>
-
-                      {/* Text */}
-                      <span
-                        className="relative z-10 font-bold text-xs text-center transition-all duration-300 group-hover:text-white"
-                        style={{
-                          color: typeof skill === "object" ? skill.color : skill,
-                        }}
-                      >
-                        {typeof skill === "object" ? skill.name : skill}
-                      </span>
-                    </div>
+                    <SkillBadge key={i} name={skill.name} color={skill.color} icon={skill.icon} />
                   ))}
                 </div>
               </div>

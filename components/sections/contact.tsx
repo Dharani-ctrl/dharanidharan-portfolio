@@ -2,19 +2,32 @@
 
 import React, { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Mail, Linkedin, Github, Twitter, Loader2, CheckCircle2 } from "lucide-react"
+import {
+  Mail,
+  Linkedin,
+  Github,
+  MessageCircle,
+  Loader2,
+  CheckCircle2,
+} from "lucide-react"
 
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    subject: "Portfolio Inquiry", // Required by your Mongoose Schema
+    subject: "Portfolio Inquiry",
     message: "",
   })
-  const [isLoading, setIsLoading] = useState(false)
-  const [status, setStatus] = useState<{ type: "success" | "error"; msg: string } | null>(null)
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const [isLoading, setIsLoading] = useState(false)
+  const [status, setStatus] = useState<{
+    type: "success" | "error"
+    msg: string
+  } | null>(null)
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
@@ -25,12 +38,9 @@ export default function Contact() {
     setStatus(null)
 
     try {
-      // Note the URL: /api/contacts (plural)
       const response = await fetch("http://localhost:5000/api/contacts", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       })
 
@@ -38,22 +48,41 @@ export default function Contact() {
 
       if (response.ok) {
         setStatus({ type: "success", msg: "Message sent successfully!" })
-        setFormData({ name: "", email: "", subject: "Portfolio Inquiry", message: "" })
+        setFormData({
+          name: "",
+          email: "",
+          subject: "Portfolio Inquiry",
+          message: "",
+        })
       } else {
-        throw new Error(data.message || "Something went wrong")
+        throw new Error(data.message)
       }
-    } catch (error: any) {
-      console.error("Fetch error:", error)
-      setStatus({ type: "error", msg: "Could not connect to server. Check if backend is running." })
+    } catch (error) {
+      setStatus({
+        type: "error",
+        msg: "Could not connect to server. Check if backend is running.",
+      })
     } finally {
       setIsLoading(false)
     }
   }
 
+  // WhatsApp Config
+  const whatsappNumber = "916385372905" 
+  const whatsappMessage = encodeURIComponent(
+    "Hi, I’d like to discuss a project with you. "
+  )
+  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`
+
   return (
-    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 bg-card/50">
+    <section
+      id="contact"
+      className="py-20 px-4 sm:px-6 lg:px-8 bg-card/50"
+    >
       <div className="max-w-6xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-12">
+
+          {/* Contact Form */}
           <form onSubmit={handleSubmit} className="space-y-4">
             <input
               type="text"
@@ -81,62 +110,83 @@ export default function Contact() {
               value={formData.message}
               onChange={handleChange}
               className="w-full p-4 rounded-lg bg-background border border-border outline-none focus:ring-2 ring-primary"
-            ></textarea>
+            />
 
             <Button type="submit" disabled={isLoading} className="w-full py-6">
-              {isLoading ? <Loader2 className="animate-spin mr-2" /> : "Send Message"}
+              {isLoading ? (
+                <Loader2 className="animate-spin mr-2" />
+              ) : (
+                "Send Message"
+              )}
             </Button>
 
             {status && (
-              <div className={`p-4 rounded-lg flex items-center gap-2 ${
-                status.type === "success" ? "bg-green-500/10 text-green-500" : "bg-red-500/10 text-red-500"
-              }`}>
-                {status.type === "success" && <CheckCircle2 size={18} />}
+              <div
+                className={`p-4 rounded-lg flex items-center gap-2 ${
+                  status.type === "success"
+                    ? "bg-green-500/10 text-green-500"
+                    : "bg-red-500/10 text-red-500"
+                }`}
+              >
+                {status.type === "success" && (
+                  <CheckCircle2 size={18} />
+                )}
                 {status.msg}
               </div>
             )}
           </form>
 
-                    {/* Contact Info */}
+          {/* Contact Info */}
           <div className="space-y-8">
             <div>
-              <h3 className="text-lg font-semibold mb-4">Connect With Me</h3>
+              <h3 className="text-lg font-semibold mb-4">
+                Connect With Me
+              </h3>
               <p className="text-muted-foreground mb-6">
-                Feel free to reach out through any of these channels. I typically respond within 24 hours.
+                Feel free to reach out through any of these channels.
+                I typically respond within 24 hours.
               </p>
 
               <div className="space-y-4">
                 <a
-                  href="mailto:hello@example.com"
+                  href="mailto:tdharanidharan340@gmail.com"
                   className="flex items-center gap-3 p-4 rounded-lg bg-background border border-border hover:border-primary/50 transition-colors"
                 >
                   <Mail className="text-primary" size={20} />
-                  <span>hello@example.com</span>
+                  <span>tdharanidharan340@gmail.com</span>
                 </a>
+
                 <a
-                  href="#"
+                  href="https://www.linkedin.com/in/dharanidharant/"
+                  target="_blank"
                   className="flex items-center gap-3 p-4 rounded-lg bg-background border border-border hover:border-primary/50 transition-colors"
                 >
                   <Linkedin className="text-primary" size={20} />
                   <span>LinkedIn Profile</span>
                 </a>
+
                 <a
-                  href="#"
+                  href="https://github.com/Dharani-ctrl"
+                  target="_blank"
                   className="flex items-center gap-3 p-4 rounded-lg bg-background border border-border hover:border-primary/50 transition-colors"
                 >
                   <Github className="text-primary" size={20} />
                   <span>GitHub Profile</span>
                 </a>
+
+                {/* ✅ WhatsApp */}
                 <a
-                  href="#"
+                  href={whatsappLink}
+                  target="_blank"
                   className="flex items-center gap-3 p-4 rounded-lg bg-background border border-border hover:border-primary/50 transition-colors"
                 >
-                  <Twitter className="text-primary" size={20} />
-                  <span>Twitter / X</span>
+                  <MessageCircle className="text-primary" size={20} />
+                  <span>WhatsApp</span>
                 </a>
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
