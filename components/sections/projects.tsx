@@ -5,7 +5,7 @@ import { ExternalLink, Github } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { 
   SiReact, SiNextdotjs, SiNodedotjs, SiMongodb, SiTailwindcss,SiVite, SiGooglepay,
-  SiTypescript, SiSocketdotio, SiStripe, SiFramer, SiPostgresql, SiGoogledrive, SiExpress, SiPostman
+  SiTypescript, SiSocketdotio, SiStripe, SiFramer, SiPostgresql, SiGoogledrive, SiExpress, SiPostman, SiDocker, SiJenkins, SiChatbot, SiAmazonwebservices
 } from "react-icons/si"
 
 const techIcons: { [key: string]: { icon: any; color: string } } = {
@@ -24,6 +24,10 @@ const techIcons: { [key: string]: { icon: any; color: string } } = {
   "Google Drive": { icon: SiGoogledrive, color: "#4285F4" },
 "Express": { icon: SiExpress, color: "#828282" },
 "Postman": { icon: SiPostman, color: "#E34C26" },
+"Docker": { icon: SiDocker, color: "#2496ED" },
+"Jenkins": { icon: SiJenkins, color: "#D24939" },
+"AI": { icon: SiChatbot, color: "#4CAF50" },
+"AWS": { icon: SiAmazonwebservices, color: "#FF9900" },
 };
 
 export default function Projects() {
@@ -55,37 +59,37 @@ export default function Projects() {
     {
       title: "AI Based CI/CD Software Delivery (Jenkins) ",
       description: "AI improves accuracy and efficiency in software pipelines.",
-      tech: ["React", "Node.js", "Stripe"],
-      link: "#",
+      tech: ["React", "Node.js", "Docker", "Jenkins", "AI", "AWS"],
+      // link: "#",
       github: "https://github.com/Dharani-ctrl/jenkins-ci-cd-project",
-      image: "https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=800",
+      image: "/CICD.png",
       className: "lg:col-span-2 h-[260px]", 
     },
     {
       title: "SLMS ",
       description: "Student lab management system with real-time updates and analytics Using MERN Stack.",
-      tech: ["Next.js", "Socket.io"],
-      link: "#",
+      tech: ["React", "Node.js", "MongoDB", "Express", "Postman"],
+      
       github: "https://github.com/Dharani-ctrl/Student-Lab-Management",
-      image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=800",
+      image: "/SLM.png",
       className: "lg:col-span-1 h-[260px]",
     },
     {
       title: "E-Commerce Website",
       description: "React UI E-commerce platform with payment integration .",
       tech: ["React", "Tailwind", "Vite", "Google Pay"],
-      link: "https://github.com/Dharani-ctrl/react-card-app",
+      // link: "https://github.com/Dharani-ctrl/react-card-app",
       github: "https://github.com/Dharani-ctrl/react-card-app",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800",
+      image: "/E-Com.jpg",
       className: "lg:col-span-1 h-[260px]",
     },
     {
       title: "Backend File Upload Viewer",
-      description: "Privacy-focused networking engine.",
+      description: "Server side file management and viewer system (Node.js, Express.js).",
       tech: ["Node.js", "Express", "Google Drive", "Postman"],
-      link: "#",
+      // link: "https://github.com/Dharani-ctrl/Backend-Work-flow",
       github: "https://github.com/Dharani-ctrl/Backend-Work-flow",
-      image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=800",
+      image: "/Server.jpg",
       className: "lg:col-span-2 h-[260px]",
     },
   ]

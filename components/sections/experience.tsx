@@ -1,21 +1,25 @@
 "use client"
 
 import { useEffect, useRef } from "react"
-import { Laptop, Rocket, Code2, MapPin } from "lucide-react"
+import { Laptop, Rocket, Code2, MapPin, Calendar } from "lucide-react"
 
 export default function Experience() {
-  const containerRef = useRef(null)
+  const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const items = entry.target.querySelectorAll(".experience-card")
+            // Select only HTML Elements to avoid TypeError
+            const items = entry.target.querySelectorAll<HTMLElement>(".experience-card")
+            
             items.forEach((item, index) => {
-              item.style.animation = "slide-in-right 0.7s ease-out forwards"
-              item.style.animationDelay = `${index * 0.15}s`
-              item.style.opacity = "0"
+              setTimeout(() => {
+                // Using standard style manipulation for maximum compatibility in Next.js
+                item.style.opacity = "1"
+                item.style.transform = "translateY(0) scale(1)"
+              }, index * 250)
             })
             observer.unobserve(entry.target)
           }
@@ -23,131 +27,125 @@ export default function Experience() {
       },
       { threshold: 0.1 },
     )
-
-    if (containerRef.current) {
-      observer.observe(containerRef.current)
-    }
-
+    if (containerRef.current) observer.observe(containerRef.current)
     return () => observer.disconnect()
   }, [])
 
   const experiences = [
     {
-      role: "WordPress Developer",
-      company: "Fiverr",
-      period: "2019 - 2020",
-      icon: <Laptop className="w-5 h-5" />,
-      achievements: "Worked on developing and customizing WordPress websites for clients globally.",
+      role: "Backend Developer (MERN Specialist)",
+      company: "Rehabionics Healthcare Pvt Ltd , Coimbatore",
+      period: "Aug 2025 - Present",
+      icon: <Rocket className="w-5 h-5" />,
+      achievements: "Spearheaded the development of a scalable healthcare application using the MERN stack.Especially focused on optimizing backend performance and implementing secure API endpoints to handle sensitive medical data efficiently.",
       technologies: [
-        { name: "WordPress", color: "#0073AA" },
-        { name: "PHP", color: "#777BB4" },
-        { name: "MySQL", color: "#00758F" },
+        { name: "Node.js", color: "#339933" },
+        { name: "Postman", color: "#E34C26" },
+        { name: "MongoDB", color: "#47A248" },
+        { name: "Nodemailer", color: "#828282" },
+        
       ],
     },
     {
-      role: "Junior Frontend Developer",
-      company: "Sera Programmer",
-      period: "2021 - 2023",
+      role: "Web Developer Intern",
+      company: "SkillSync Technologies, Coimbatore",
+      period: "Jul 2025 - Sep 2025",
       icon: <Code2 className="w-5 h-5" />,
-      achievements:
-        "Assisted in building and optimizing user interfaces with a focus on responsive and interactive designs.",
+      achievements: "Assisted in building and optimizing user interfaces with a focus on responsive design and interactive user experiences.",
       technologies: [
         { name: "React", color: "#61DAFB" },
         { name: "Tailwind CSS", color: "#06B6D4" },
-        { name: "JavaScript", color: "#F7DF1E" },
+        { name: "HTML", color: "#E34C26" },
+        {name: "JavaScript", color: "#F7DF1E" },
       ],
     },
     {
-      role: "JavaScript Developer",
-      company: "OlovaJS (Sera Programmer)",
-      period: "2023 - Present",
-      icon: <Rocket className="w-5 h-5" />,
-      achievements: "Contributed to developing JavaScript libraries and enhancing framework functionalities.",
+      role: "Frontend Developer Intern",
+      company: "NoviTech R&D Pvt Ltd",
+      period: "Feb 2024 - Mar 2024",
+      icon: <Laptop className="w-5 h-5" />,
+      achievements: "Learned the fundamentals of frontend development and contributed to small projects, gaining hands-on experience with modern web technologies.",
       technologies: [
+        { name: "HTML", color: "#E34C26" },
+        { name: "CSS", color: "#5A67D8" },
         { name: "JavaScript", color: "#F7DF1E" },
-        { name: "TypeScript", color: "#3178C6" },
-        { name: "Node.js", color: "#339933" },
       ],
     },
   ]
 
   return (
-    <section id="experience" className="py-24 px-4 sm:px-6 lg:px-8 relative">
+    <section id="experience" className="py-24 px-4 bg-[#030712] relative overflow-hidden">
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/10 blur-[120px] rounded-full pointer-events-none" />
+      
       <div className="max-w-4xl mx-auto relative z-10">
-        <div className="flex items-center gap-3 mb-20 animate-in fade-in duration-700">
-          <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
-            <Laptop className="w-5 h-5" />
+        <div className="flex flex-col items-center mb-20 text-center">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold uppercase tracking-widest mb-4">
+            <Calendar size={14} /> My Journey
           </div>
-          <h2 className="text-4xl sm:text-5xl font-bold text-primary">Work Experience</h2>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight">
+            Work Experience
+          </h2>
         </div>
 
-        {/* Vertical Timeline */}
         <div className="relative" ref={containerRef}>
-          {/* Timeline line */}
-          <div className="absolute left-7 top-0 bottom-0 w-1 bg-gradient-to-b from-primary via-primary to-primary/30"></div>
+          <div className="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-transparent via-blue-500/50 to-transparent" />
 
-          {/* Experience items */}
-          <div className="space-y-8">
+          <div className="space-y-12">
             {experiences.map((exp, idx) => (
-              <div key={idx} className="experience-card relative pl-24">
-                {/* Timeline circle icon */}
-                <div
-                  className="absolute left-0 top-0 w-16 h-16 rounded-full border-4 border-primary bg-background flex items-center justify-center text-primary transition-all duration-300 hover:scale-125 hover:shadow-lg hover:shadow-primary/50"
-                  style={{
-                    borderColor: "#00d4ff",
-                  }}
-                >
-                  {exp.icon}
+              <div 
+                key={idx} 
+                className={`experience-card relative flex flex-col md:flex-row items-center gap-8 transition-all duration-1000 ease-out ${
+                  idx % 2 === 0 ? "md:flex-row-reverse" : ""
+                }`}
+                style={{
+                  opacity: 0,
+                  transform: "translateY(2rem) scale(0.95)"
+                }}
+              >
+                {/* Timeline Node */}
+                <div className="absolute left-4 md:left-1/2 md:-translate-x-1/2 w-10 h-10 rounded-full bg-[#030712] border-2 border-blue-500 flex items-center justify-center z-20 shadow-[0_0_15px_rgba(59,130,246,0.5)]">
+                  <div className="text-blue-400">{exp.icon}</div>
+                  <div className="absolute inset-0 rounded-full bg-blue-500 animate-ping opacity-20" />
                 </div>
 
-                {/* Content card */}
-                <div className="p-6 rounded-lg bg-secondary/20 border border-primary/30 hover:border-primary/80 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20">
-                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-3">
-                    <div>
-                      <h3 className="text-xl font-semibold text-primary mb-1">{exp.role}</h3>
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
-                        <MapPin size={16} className="text-primary" />
-                        <span>{exp.company}</span>
-                      </div>
-                    </div>
-                    <span className="text-xs px-3 py-1 rounded-full bg-primary/20 text-primary font-medium whitespace-nowrap">
+                {/* Content Card */}
+                <div className="w-full md:w-[45%] pl-12 md:pl-0">
+                  <div className="group relative p-6 rounded-2xl bg-white/[0.02] border border-white/10 backdrop-blur-sm hover:border-blue-500/50 hover:bg-white/[0.04] transition-all duration-500 shadow-xl">
+                    <div className="inline-block px-3 py-1 rounded-md bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] font-bold uppercase tracking-wider mb-4">
                       {exp.period}
-                    </span>
-                  </div>
+                    </div>
 
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-4">{exp.achievements}</p>
+                    <h3 className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors duration-300">
+                      {exp.role}
+                    </h3>
+                    
+                    <div className="flex items-center gap-2 text-gray-400 text-sm mt-1 mb-4">
+                      <MapPin size={14} className="text-blue-500" />
+                      <span>{exp.company}</span>
+                    </div>
 
-                  {/* Technologies */}
-                  {exp.technologies && (
-                    <div className="flex flex-wrap gap-2 mt-4 pt-4 border-t border-primary/20">
+                    <p className="text-gray-400 text-sm leading-relaxed mb-6">
+                      {exp.achievements}
+                    </p>
+
+                    <div className="flex flex-wrap gap-2">
                       {exp.technologies.map((tech, i) => (
-                        <div
+                        <span
                           key={i}
-                          className="relative group/tech px-2 py-1 text-xs rounded-full border transition-all duration-300 hover:scale-110 cursor-pointer overflow-hidden"
+                          className="px-2 py-1 text-[10px] font-bold rounded-md border transition-all"
                           style={{
-                            borderColor: tech.color,
-                            backgroundColor: `${tech.color}15`,
+                            borderColor: `${tech.color}40`,
+                            color: tech.color,
+                            backgroundColor: `${tech.color}10`,
                           }}
                         >
-                          <div
-                            className="absolute inset-0 opacity-0 group-hover/tech:opacity-100 transition-opacity duration-300"
-                            style={{
-                              background: `linear-gradient(135deg, ${tech.color}30 0%, ${tech.color}50 100%)`,
-                            }}
-                          ></div>
-                          <span
-                            className="relative z-10 font-semibold transition-all duration-300 group-hover/tech:text-white"
-                            style={{
-                              color: tech.color,
-                            }}
-                          >
-                            {tech.name}
-                          </span>
-                        </div>
+                          {tech.name}
+                        </span>
                       ))}
                     </div>
-                  )}
+                  </div>
                 </div>
+                <div className="hidden md:block md:w-[45%]" />
               </div>
             ))}
           </div>

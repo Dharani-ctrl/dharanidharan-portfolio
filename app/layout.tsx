@@ -9,18 +9,18 @@ const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Full Stack Developer Portfolio | MERN Stack",
+  title: "Dharanidharan Portfolio | MERN Stack",
   description:
     "Professional portfolio showcasing MERN stack projects, expertise in React, Node.js, Express, and MongoDB",
-  generator: "dharani.dev",
+  generator: "dharan.dev",
   icons: {
     icon: [
       {
-        url: "/icon-light-32x32.png",
+        url: "/logo.png",
         media: "(prefers-color-scheme: light)",
       },
       {
-        url: "/icon-dark-32x32.png",
+        url: "/logo.png",
         media: "(prefers-color-scheme: dark)",
       },
       {
