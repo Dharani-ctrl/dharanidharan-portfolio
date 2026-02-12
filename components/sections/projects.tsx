@@ -4,8 +4,8 @@ import { useEffect, useRef } from "react"
 import { ExternalLink, Github } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { 
-  SiReact, SiNextdotjs, SiNodedotjs, SiMongodb, SiTailwindcss, 
-  SiTypescript, SiSocketdotio, SiStripe, SiFramer, SiPostgresql
+  SiReact, SiNextdotjs, SiNodedotjs, SiMongodb, SiTailwindcss,SiVite, SiGooglepay,
+  SiTypescript, SiSocketdotio, SiStripe, SiFramer, SiPostgresql, SiGoogledrive, SiExpress, SiPostman
 } from "react-icons/si"
 
 const techIcons: { [key: string]: { icon: any; color: string } } = {
@@ -19,6 +19,11 @@ const techIcons: { [key: string]: { icon: any; color: string } } = {
   "Stripe": { icon: SiStripe, color: "#635BFF" },
   "Framer": { icon: SiFramer, color: "#0055FF" },
   "Postgres": { icon: SiPostgresql, color: "#336791" },
+  "Vite": { icon: SiVite, color: "#646CFF" },
+  "Google Pay": { icon: SiGooglepay, color: "#4285F4" },
+  "Google Drive": { icon: SiGoogledrive, color: "#4285F4" },
+"Express": { icon: SiExpress, color: "#828282" },
+"Postman": { icon: SiPostman, color: "#E34C26" },
 };
 
 export default function Projects() {
@@ -48,38 +53,38 @@ export default function Projects() {
 
   const projects = [
     {
-      title: "E-Commerce OS",
-      description: "Full-stack storefront with Stripe and inventory.",
+      title: "AI Based CI/CD Software Delivery (Jenkins) ",
+      description: "AI improves accuracy and efficiency in software pipelines.",
       tech: ["React", "Node.js", "Stripe"],
       link: "#",
-      github: "#",
+      github: "https://github.com/Dharani-ctrl/jenkins-ci-cd-project",
       image: "https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=800",
       className: "lg:col-span-2 h-[260px]", 
     },
     {
-      title: "Task Pulse",
-      description: "Real-time sync collaboration tool.",
+      title: "SLMS ",
+      description: "Student lab management system with real-time updates and analytics Using MERN Stack.",
       tech: ["Next.js", "Socket.io"],
       link: "#",
-      github: "#",
+      github: "https://github.com/Dharani-ctrl/Student-Lab-Management",
       image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=800",
       className: "lg:col-span-1 h-[260px]",
     },
     {
-      title: "Data Core",
-      description: "Analytics with interactive Framer charts.",
-      tech: ["TypeScript", "Framer"],
-      link: "#",
-      github: "#",
+      title: "E-Commerce Website",
+      description: "React UI E-commerce platform with payment integration .",
+      tech: ["React", "Tailwind", "Vite", "Google Pay"],
+      link: "https://github.com/Dharani-ctrl/react-card-app",
+      github: "https://github.com/Dharani-ctrl/react-card-app",
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800",
       className: "lg:col-span-1 h-[260px]",
     },
     {
-      title: "Social Flux",
+      title: "Backend File Upload Viewer",
       description: "Privacy-focused networking engine.",
-      tech: ["Tailwind", "Postgres", "Node.js"],
+      tech: ["Node.js", "Express", "Google Drive", "Postman"],
       link: "#",
-      github: "#",
+      github: "https://github.com/Dharani-ctrl/Backend-Work-flow",
       image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=800",
       className: "lg:col-span-2 h-[260px]",
     },

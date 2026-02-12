@@ -3,10 +3,11 @@
 import { useEffect, useRef } from "react"
 import { 
   SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiHtml5, SiCss3,
-  SiNodedotjs, SiPython, SiPostgresql, SiMongodb, SiGraphql, SiExpress,
+  SiNodedotjs, SiJavascript, SiPostman, SiMongodb, SiNodemon, SiExpress,
   SiFigma, SiAdobexd, SiFramer, SiAmazonwebservices, SiDocker, SiKubernetes,
   SiGithubactions, SiJest, SiWebpack, SiFirebase, SiVercel,
-  SiThreedotjs, SiAdobeaftereffects, SiBlender, SiGreensock, SiGit
+  SiThreedotjs, SiAdobeaftereffects, SiBlender, SiGreensock, SiGit,
+  SiDotenv
 } from "react-icons/si"
 import { VscCode } from "react-icons/vsc" 
 import { Layout, Database, Wrench, Cloud, Sparkles, Code2 } from "lucide-react"
@@ -83,11 +84,11 @@ export default function Skills() {
       icon: Database,
       skills: [
         { name: "Node.js", color: "#339933", icon: SiNodedotjs },
-        { name: "Python", color: "#3776AB", icon: SiPython },
-        { name: "Postgres", color: "#336791", icon: SiPostgresql },
+        { name: "JavaScript", color: "#F7DF1E", icon: SiJavascript },
+        { name: "Postman", color: "#E34C26", icon: SiPostman },
         { name: "MongoDB", color: "#47A248", icon: SiMongodb },
         { name: "Express", color: "#828282", icon: SiExpress },
-        { name: "GraphQL", color: "#E10098", icon: SiGraphql },
+        { name: "dotenv", color: "#E10098", icon: SiDotenv },
       ],
     },
     {
@@ -96,7 +97,7 @@ export default function Skills() {
       skills: [
         { name: "Figma", color: "#F24E1E", icon: SiFigma },
         { name: "Framer", color: "#0055FF", icon: SiFramer },
-        { name: "Adobe XD", color: "#FF61F6", icon: SiAdobexd },
+
         { name: "Responsive", color: "#00D4FF", icon: SiCss3 },
       ],
     },
