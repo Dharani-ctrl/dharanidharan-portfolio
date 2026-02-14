@@ -1,0 +1,36 @@
+services:
+  # Backend API Service
+  - type: web
+    name: dharani-portfolio-api
+    runtime: node
+    plan: free
+    buildCommand: cd server && npm install
+    startCommand: cd server && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        sync: false
+      - key: PORT
+        value: "5000"
+      - key: CORS_ORIGIN
+        value: https://dharanidharan-portfolio-web.onrender.com
+
+  # Frontend Service
+  - type: web
+    name: dharanidharan-portfolio-web
+    runtime: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NEXT_PUBLIC_API_URL
+        value: https://dharanidharan-portfolio-api.onrender.com
+
+  # PostgreSQL Database (Optional - currently using MongoDB Atlas)
+  # - type: pserv
+  #   name: dharani-portfolio-db
+  #   plan: free
+  #   ipAllowList: []
