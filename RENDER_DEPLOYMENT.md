@@ -121,7 +121,7 @@ PORT=5000
 6. **Wait for Deployment**
    - Build will take 2-5 minutes
    - Check logs for any errors
-   - Note your backend URL (e.g., `https://dharani-portfolio-api.onrender.com`)
+   - Note your backend URL (e.g., `https://dharanidharan-portfolio-api.onrender.com`)
 
 ## Step 6: Configure Frontend for Render
 

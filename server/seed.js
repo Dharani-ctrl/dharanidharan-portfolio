@@ -9,16 +9,16 @@ const Skill = require('./models/Skill');
 
 dotenv.config();
 
-const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/portfolio';
+const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/dharani-portfolio';
 
 const educationData = [
   {
-    degree: "Bachelor of Science in Computer Science",
-    institution: "Tech University",
+    degree: "B.E. Computer Science and Engineering",
+    institution: "Dhanalakshmi Srinivasan College of Engineering , Coimbatore - TamilNadu",
     field: "Computer Science",
-    startDate: new Date("2017-09-01"),
-    endDate: new Date("2021-06-01"),
-    description: "Core focus on web development, databases, and software engineering principles.",
+    startDate: new Date("2022-10-01"),
+    endDate: new Date("2026-06-01"),
+    description: "Core focus on a digital or physical showcase of a student’s technical skills, academic projects, internships, and coding proficiency to demonstrate their readiness for software development roles.",
     location: "Online"
   },
   {
