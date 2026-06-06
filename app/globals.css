@@ -4,40 +4,40 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Light mode colors for proper light/dark mode support */
-  --background: #ffffff;
-  --foreground: #0a0e27;
-  --card: #f5f5f5;
-  --card-foreground: #0a0e27;
+  /* Modern, Premium Light Mode Colors */
+  --background: #f8fafc; /* Soft, slightly cool off-white */
+  --foreground: #0f172a; /* Slate 900 for sharp, modern text */
+  --card: #ffffff; /* Pure white cards to stand out against background */
+  --card-foreground: #0f172a;
   --popover: #ffffff;
-  --popover-foreground: #0a0e27;
-  --primary: #00d4ff;
-  --primary-foreground: #0a0e27;
-  --secondary: #f0f0f0;
-  --secondary-foreground: #0a0e27;
-  --muted: #e5e5e5;
-  --muted-foreground: #666666;
-  --accent: #00d4ff;
-  --accent-foreground: #0a0e27;
-  --destructive: #ff6b6b;
+  --popover-foreground: #0f172a;
+  --primary: #0ea5e9; /* Sky 500 - vibrant, energetic blue that looks amazing on light */
+  --primary-foreground: #ffffff; /* White text on primary buttons */
+  --secondary: #f1f5f9; /* Slate 100 for subtle interactive elements */
+  --secondary-foreground: #334155; /* Slate 700 */
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b; /* Slate 500 for secondary text */
+  --accent: #38bdf8; /* Sky 400 for gradients */
+  --accent-foreground: #0f172a;
+  --destructive: #ef4444;
   --destructive-foreground: #ffffff;
-  --border: #e5e5e5;
-  --input: #f5f5f5;
-  --ring: #00d4ff;
-  --chart-1: #00d4ff;
-  --chart-2: #00ff88;
-  --chart-3: #ff006e;
-  --chart-4: #8338ec;
-  --chart-5: #ffbe0b;
+  --border: #e2e8f0; /* Slate 200 */
+  --input: #e2e8f0;
+  --ring: #0ea5e9;
+  --chart-1: #0ea5e9;
+  --chart-2: #10b981;
+  --chart-3: #f43f5e;
+  --chart-4: #8b5cf6;
+  --chart-5: #f59e0b;
   --radius: 0.625rem;
   --sidebar: #ffffff;
-  --sidebar-foreground: #0a0e27;
-  --sidebar-primary: #00d4ff;
-  --sidebar-primary-foreground: #0a0e27;
-  --sidebar-accent: #f0f0f0;
-  --sidebar-accent-foreground: #0a0e27;
-  --sidebar-border: #e5e5e5;
-  --sidebar-ring: #00d4ff;
+  --sidebar-foreground: #0f172a;
+  --sidebar-primary: #0ea5e9;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f1f5f9;
+  --sidebar-accent-foreground: #0f172a;
+  --sidebar-border: #e2e8f0;
+  --sidebar-ring: #0ea5e9;
 }
 
 .dark {
@@ -76,8 +76,9 @@
 }
 
 @theme inline {
-  --font-sans: "Geist", "Geist Fallback";
-  --font-mono: "Geist Mono", "Geist Mono Fallback";
+  --font-sans: var(--font-sans), system-ui, sans-serif;
+  --font-heading: var(--font-heading), "Space Grotesk", system-ui, sans-serif;
+  --font-mono: var(--font-mono), monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -120,14 +121,261 @@
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-sans); /* Plus Jakarta Sans */
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.75;
+    letter-spacing: -0.01em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    animation: fadeInPage 0.8s ease-out;
+  }
+
+  /* ===================================
+     PREMIUM HEADING TYPOGRAPHY — Sora
+     Tight, bold, modern display style
+     =================================== */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading); /* Sora */
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    line-height: 1.1;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 800;
+    letter-spacing: -0.05em;
+    line-height: 1.05;
+  }
+  h2 {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    line-height: 1.1;
+  }
+  h3 {
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+  }
+  h4 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  /* Paragraph — slightly medium weight for clarity */
+  p {
+    font-family: var(--font-sans);
+    font-weight: 400;
+    line-height: 1.75;
+    font-size: 1rem;
+  }
+
+  /* Strong / bold text — semi-bold for Plus Jakarta */
+  strong, b {
+    font-weight: 700;
+  }
+
+  /* Navigation and UI labels — medium weight */
+  button, label, a {
+    font-family: var(--font-sans);
+    font-weight: 500;
+  }
+
+  /* Code blocks — mono stays */
+  code, pre, kbd {
+    font-family: var(--font-mono), "Fira Code", monospace;
+    letter-spacing: 0;
+  }
+
+  /* ===================================
+     LIGHT MODE ONLY — properly scoped
+     so dark mode is never overridden
+     =================================== */
+
+  /* Card depth — light only */
+  html:not(.dark) .card,
+  html:not(.dark) [class*="bg-card"] {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(14,165,233,0.04);
+  }
+
+  /* Headings — deep slate */
+  html:not(.dark) h1,
+  html:not(.dark) h2,
+  html:not(.dark) h3,
+  html:not(.dark) h4 {
+    color: #0f172a;
+  }
+
+  /* Paragraphs */
+  html:not(.dark) p {
+    color: #334155;
+  }
+
+  /* Muted text */
+  html:not(.dark) .text-muted-foreground {
+    color: #64748b !important;
+  }
+
+  /* Foreground text */
+  html:not(.dark) .text-foreground {
+    color: #0f172a !important;
+  }
+
+  /* Section background — let individual sections control their own bg via Tailwind classes */
+  html:not(.dark) body {
+    background-color: #f8fafc;
+  }
+
+  /* Cards — pure white */
+  html:not(.dark) .bg-card {
+    background-color: #ffffff !important;
+    border-color: #e2e8f0 !important;
+  }
+
+  /* Secondary surfaces */
+  html:not(.dark) .bg-secondary\/5,
+  html:not(.dark) .bg-secondary\/10,
+  html:not(.dark) .bg-secondary\/30,
+  html:not(.dark) .bg-secondary\/50,
+  html:not(.dark) .bg-secondary\/80 {
+    background-color: #f1f5f9 !important;
+  }
+
+  /* Borders */
+  html:not(.dark) .border-border {
+    border-color: #e2e8f0 !important;
+  }
+
+  /* Gradient text — light-specific rich blue */
+  html:not(.dark) .gradient-text {
+    background: linear-gradient(135deg, #0284c7, #0ea5e9, #38bdf8) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+  }
+
+  /* Nav scrolled — handled by Tailwind bg-background/95 class via CSS variables */
+
+  /* Nav active item */
+  html:not(.dark) nav .bg-primary\/30 {
+    background-color: #bae6fd !important;
+  }
+
+  /* Hover glow — toned-down for light */
+  html:not(.dark) .hover-glow {
+    box-shadow: 0 0 12px rgba(14, 165, 233, 0.12);
+  }
+  html:not(.dark) .hover-glow:hover {
+    box-shadow: 0 0 24px rgba(14, 165, 233, 0.25);
+  }
+
+  /* ===================================
+     DARK MODE EXPLICIT RESETS
+     Ensure dark theme always wins
+     =================================== */
+
+  /* Headings — light foreground */
+  html.dark h1,
+  html.dark h2,
+  html.dark h3,
+  html.dark h4 {
+    color: #e0e7ff;
+  }
+
+  /* Paragraphs */
+  html.dark p {
+    color: #9ca3af;
+  }
+
+  /* Muted text */
+  html.dark .text-muted-foreground {
+    color: #9ca3af !important;
+  }
+
+  /* Foreground text */
+  html.dark .text-foreground {
+    color: #e0e7ff !important;
+  }
+
+  /* Dark body background */
+  html.dark body {
+    background-color: #050810;
+  }
+  /* Ensure sections without explicit bg class inherit from body */
+  html.dark section:not([class*="bg-"]) {
+    background-color: #050810;
+  }
+
+  /* Dark cards */
+  html.dark .bg-card {
+    background-color: #0d1120 !important;
+    border-color: #1a2138 !important;
+  }
+
+  /* Dark secondary surfaces */
+  html.dark .bg-secondary\/5,
+  html.dark .bg-secondary\/10,
+  html.dark .bg-secondary\/30,
+  html.dark .bg-secondary\/50,
+  html.dark .bg-secondary\/80 {
+    background-color: #151b2f !important;
+  }
+
+  /* Dark borders */
+  html.dark .border-border {
+    border-color: #1a2138 !important;
+  }
+
+  /* Dark gradient text — original cyan glow */
+  html.dark .gradient-text {
+    background: linear-gradient(135deg, #00d4ff, #38bdf8, #00d4ff) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+  }
+
+  /* Dark nav — transparent by default, handled by scroll state classes */
+
+  /* Dark hover glow — original neon cyan */
+  html.dark .hover-glow {
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.1);
+  }
+  html.dark .hover-glow:hover {
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.4);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    ::before,
+    ::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  @keyframes fadeInPage {
+    from { opacity: 0; }
+    to { opacity: 1; }
   }
 
   /* Added comprehensive animation keyframes for rich microinteractions */
@@ -296,7 +544,16 @@
 
   /* Gradient text */
   .gradient-text {
-    @apply bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent;
+    background: linear-gradient(135deg, #0ea5e9, #38bdf8, #0284c7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .dark .gradient-text {
+    background: linear-gradient(135deg, #00d4ff, #38bdf8, #00d4ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   /* Card hover effects */

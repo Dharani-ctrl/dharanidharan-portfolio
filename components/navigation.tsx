@@ -60,6 +60,7 @@ export default function Navigation() {
   ]
 
   return (
+    <>
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         isScrolled ? "bg-background/95 backdrop-blur border-b border-primary/20" : "bg-transparent"
@@ -72,8 +73,9 @@ export default function Navigation() {
           {/* Logo - Always visible now to balance the icon on the right */}
           
           <div className="flex-shrink-0">
-            <a href="#" className="text-2xl font-bold gradient-text hover:opacity-80 transition-opacity">
-              Dharan.dev
+            <a href="#" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+              <img src="/logo.svg" alt="Dharan.codes Logo" className="w-8 h-8 rounded-lg" />
+              <span className="text-2xl font-bold gradient-text">Dharan.codes</span>
             </a>
           </div>
 
@@ -109,34 +111,57 @@ export default function Navigation() {
             </button>
           </div>
         </div>
-
-        {/* Mobile Dropdown Menu */}
-        {isOpen && (
-          <div className="md:hidden absolute top-16 left-0 w-full bg-background/95 backdrop-blur-xl border-b border-primary/20 py-4 animate-in slide-in-from-top duration-300">
-            <div className="flex flex-col gap-1 px-4">
-              {navItems.map((item, idx) => {
-                const Icon = item.icon
-                const isActive = activeSection === item.id
-                return (
-                  <button
-                    key={item.id}
-                    onClick={() => scrollToSection(item.id)}
-                    className={`flex items-center gap-4 px-4 py-4 text-base font-medium rounded-xl transition-all ${
-                      isActive 
-                        ? "bg-primary/20 text-primary border-l-4 border-primary" 
-                        : "hover:bg-primary/10 text-foreground/80"
-                    }`}
-                    style={{ animationDelay: `${idx * 0.05}s` }}
-                  >
-                    <Icon size={20} />
-                    {item.label}
-                  </button>
-                )
-              })}
-            </div>
-          </div>
-        )}
       </div>
     </nav>
+
+    {/* Modern Bottom-Sheet Mobile Menu */}
+    {isOpen && (
+      <div className="md:hidden fixed inset-0 z-[100] flex flex-col justify-end">
+        {/* Backdrop */}
+        <div 
+          className="absolute inset-0 bg-background/60 backdrop-blur-sm animate-in fade-in duration-300" 
+          onClick={() => setIsOpen(false)} 
+        />
+        
+        {/* Drawer Content */}
+        <div className="relative w-full bg-card/95 backdrop-blur-xl border-t border-primary/20 rounded-t-3xl p-6 pb-10 animate-in slide-in-from-bottom-full duration-500 shadow-[0_-10px_40px_rgba(0,212,255,0.15)]">
+          {/* Drag Handle */}
+          <div className="w-12 h-1.5 bg-muted-foreground/30 rounded-full mx-auto mb-6" />
+          
+          <div className="flex justify-between items-center mb-8">
+            <span className="text-2xl font-bold text-foreground">Explore</span>
+            <button
+              onClick={() => setIsOpen(false)}
+              className="p-2 rounded-full bg-secondary/80 text-foreground hover:bg-primary/20 hover:text-primary transition-all duration-300"
+            >
+              <X size={20} />
+            </button>
+          </div>
+
+          <div className="grid grid-cols-2 gap-3">
+            {navItems.map((item, idx) => {
+              const Icon = item.icon
+              const isActive = activeSection === item.id
+              return (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className={`flex flex-col items-center justify-center gap-3 p-4 rounded-2xl transition-all duration-300 border ${
+                    isActive 
+                      ? "bg-primary/10 border-primary/30 text-primary shadow-lg shadow-primary/5" 
+                      : "bg-secondary/30 border-transparent text-foreground/70 hover:bg-secondary hover:text-foreground"
+                  }`}
+                  style={{ animationDelay: `${idx * 0.05}s` }}
+                >
+                  <Icon size={24} className={isActive ? "text-primary" : "text-muted-foreground"} />
+                  <span className="text-sm font-semibold tracking-wide">{item.label}</span>
+                </button>
+              )
+            })}
+          </div>
+        </div>
+      </div>
+    )}
+    </>
   )
 }

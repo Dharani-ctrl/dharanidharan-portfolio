@@ -1,34 +1,45 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Geist, Geist_Mono } from "next/font/google"
+import { Inter, Space_Grotesk } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 
-const _geist = Geist({ subsets: ["latin"] })
-const _geistMono = Geist_Mono({ subsets: ["latin"] })
+// Body font — Inter: clean and highly readable
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  weight: ["300", "400", "500", "600", "700"],
+})
+
+// Heading font — Space Grotesk: bold, geometric, modern
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-heading",
+  weight: ["400", "500", "600", "700"],
+})
 
 export const metadata: Metadata = {
-  title: "Dharanidharan Portfolio | MERN Stack",
+  title: "Dharan.codes | MERN Stack Developer",
   description:
-    "Professional portfolio showcasing MERN stack projects, expertise in React, Node.js, Express, and MongoDB",
-  generator: "dharan.dev",
+    "Dharan.codes — Dharanidharan's professional portfolio showcasing full-stack MERN projects, expertise in React, Node.js, Express, and MongoDB",
+  generator: "dharan.codes",
   icons: {
     icon: [
       {
-        url: "/logo.png",
+        url: "/logo.svg",
+        type: "image/svg+xml",
+      },
+      {
+        url: "/logo.svg",
         media: "(prefers-color-scheme: light)",
       },
       {
-        url: "/logo.png",
+        url: "/logo.svg",
         media: "(prefers-color-scheme: dark)",
       },
-      {
-        url: "/logo.png",
-        type: "image/svg+xml",
-      },
     ],
-    apple: "/apple-icon.png",
+    apple: "/logo.svg",
   },
 }
 
@@ -39,7 +50,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`font-sans antialiased`}>
+      <body className={`${inter.variable} ${spaceGrotesk.variable} font-sans antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           {children}
         </ThemeProvider>
