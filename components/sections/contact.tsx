@@ -133,7 +133,7 @@ export default function Contact() {
 
           {/* Contact Form */}
           <div className="animate-in slide-in-from-right duration-700 delay-200 fill-mode-both">
-            <form onSubmit={handleSubmit} className="space-y-6 bg-background p-8 rounded-2xl border border-border shadow-xl">
+            <form onSubmit={handleSubmit} className="space-y-5 md:space-y-6 bg-background p-5 md:p-8 rounded-2xl border border-border shadow-xl">
               <div className="relative group">
                 <input
                   type="text"
@@ -142,7 +142,7 @@ export default function Contact() {
                   required
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full p-4 bg-transparent border-b-2 border-border outline-none transition-colors peer placeholder-transparent"
+                  className="w-full p-3 md:p-4 bg-transparent border-b-2 border-border outline-none transition-colors peer placeholder-transparent"
                   id="name"
                 />
                 <label htmlFor="name" className="absolute left-4 top-4 text-muted-foreground transition-all peer-focus:-top-2 peer-focus:text-xs peer-focus:text-primary peer-valid:-top-2 peer-valid:text-xs peer-valid:text-primary pointer-events-none">Your Name</label>
@@ -157,7 +157,7 @@ export default function Contact() {
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full p-4 bg-transparent border-b-2 border-border outline-none transition-colors peer placeholder-transparent"
+                  className="w-full p-3 md:p-4 bg-transparent border-b-2 border-border outline-none transition-colors peer placeholder-transparent"
                   id="email"
                 />
                 <label htmlFor="email" className="absolute left-4 top-4 text-muted-foreground transition-all peer-focus:-top-2 peer-focus:text-xs peer-focus:text-primary peer-valid:-top-2 peer-valid:text-xs peer-valid:text-primary pointer-events-none">Your Email</label>
@@ -172,14 +172,14 @@ export default function Contact() {
                   rows={5}
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full p-4 bg-transparent border-b-2 border-border outline-none transition-colors peer placeholder-transparent resize-none"
+                  className="w-full p-3 md:p-4 bg-transparent border-b-2 border-border outline-none transition-colors peer placeholder-transparent resize-none"
                   id="message"
                 />
                 <label htmlFor="message" className="absolute left-4 top-4 text-muted-foreground transition-all peer-focus:-top-2 peer-focus:text-xs peer-focus:text-primary peer-valid:-top-2 peer-valid:text-xs peer-valid:text-primary pointer-events-none">Your Message</label>
                 <div className="absolute bottom-0 left-0 w-0 h-[2px] bg-primary transition-all duration-300 peer-focus:w-full" />
               </div>
 
-              <Button type="submit" disabled={isLoading} className="w-full py-6 text-lg group bg-primary hover:bg-primary/90 transition-all shadow-[0_0_20px_rgba(0,212,255,0.2)] hover:shadow-[0_0_30px_rgba(0,212,255,0.4)]">
+              <Button type="submit" disabled={isLoading} className="w-full py-5 md:py-6 text-base md:text-lg group bg-primary hover:bg-primary/90 transition-all shadow-[0_0_20px_rgba(0,212,255,0.2)] hover:shadow-[0_0_30px_rgba(0,212,255,0.4)]">
                 {isLoading ? (
                   <span className="flex items-center gap-2">
                     <Loader2 className="animate-spin" size={20} /> Sending...

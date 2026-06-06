@@ -11,7 +11,7 @@ import Projects from "@/components/sections/projects"
 import Services from "@/components/sections/services"
 import Experience from "@/components/sections/experience"
 import Education from "@/components/sections/education"
-import WhyHireMe from "@/components/sections/why-hire-me"
+import Workflow from "@/components/sections/workflow"
 import Contact from "@/components/sections/contact"
 import Footer from "@/components/footer"
 import SplashScreen from "@/components/splash-screen"
@@ -40,7 +40,7 @@ export default function Home() {
         <Services />
         <Experience />
         <Education />
-        <WhyHireMe />
+        <Workflow />
         <Contact />
         <Footer />
       </main>
