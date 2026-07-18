@@ -67,15 +67,7 @@ export default function Hero() {
             <div className="space-y-4">
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-100 fill-mode-both">
                 <span className="block mb-2 text-foreground">I'm Dharanidharan</span>
-                <span className="inline-flex items-center mt-2">
-                  <span className="text-sm font-medium px-3 py-1 bg-green-500/10 text-green-500 border border-green-500/20 rounded-full flex items-center gap-2">
-                    <span className="relative flex h-2 w-2">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-                    </span>
-                    Open to Work
-                  </span>
-                </span>
+
               </h1>
 
               <div className="h-8 animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-200 fill-mode-both">

@@ -58,6 +58,16 @@ export default function Projects() {
 
   const projects = [
     {
+      title: "Arya Vysya's Penlli Connect \u2014 Community Matrimony Platform",
+      description: "A full-stack community matrimony platform for the Arya Vysya community with Jathagam matching, real-time chat, and Razorpay payment integration.",
+      tech: ["React", "Node.js", "Express", "Tailwind", "MongoDB", "Socket.io", "Razorpay", "JWT", "Olasms"],
+      github: "",
+      link: "https://penlliconnect.com",
+      image: "/Matrimony project.png",
+      className: "lg:col-span-1 h-[280px]",
+      featured: true
+    },
+    {
       title: "Food Waste Reduction",
       description: "A platform to reduce food waste by connecting donors with those in need.",
       tech: ["React", "Node.js", "Express", "Tailwind", "MongoDB"],

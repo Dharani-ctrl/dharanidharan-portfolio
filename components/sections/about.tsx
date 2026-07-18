@@ -12,8 +12,8 @@ export default function About() {
               {/* Profile Photo */}
               <div className="relative w-32 h-32 rounded-full p-1 bg-gradient-to-r from-primary to-accent hover-glow shrink-0">
                 <div className="absolute inset-0 rounded-full bg-primary/20 animate-ping opacity-50" />
-                <div className="w-full h-full rounded-full bg-background flex items-center justify-center overflow-hidden border-2 border-background relative z-10">
-                  <img src="/profile.jpg" alt="Dharanidharan" className="w-full h-full object-cover" />
+                <div className="w-full h-full rounded-full bg-background overflow-hidden border-2 border-background relative z-10">
+                  <img src="/profile.jpg" alt="Dharanidharan" className="w-full h-full object-cover object-top" />
                 </div>
               </div>
               
