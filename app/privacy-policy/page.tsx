@@ -53,7 +53,7 @@ export default function PrivacyPolicy() {
             Privacy Policy
           </h1>
           <p className="text-muted-foreground text-sm">
-            Last updated: <span className="text-primary font-medium">June 2026</span> · Effective for{" "}
+            Last updated: <span className="text-primary font-medium">August 2026</span> · Effective for{" "}
             <span className="font-medium text-foreground">dharan.codes</span>
           </p>
         </div>

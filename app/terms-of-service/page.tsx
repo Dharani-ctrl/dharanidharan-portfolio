@@ -59,7 +59,7 @@ export default function TermsOfService() {
             Terms of Service
           </h1>
           <p className="text-muted-foreground text-sm">
-            Last updated: <span className="text-primary font-medium">June 2026</span> · Effective for{" "}
+            Last updated: <span className="text-primary font-medium">Aug 2026</span> · Effective for{" "}
             <span className="font-medium text-foreground">dharan.codes</span>
           </p>
         </div>
