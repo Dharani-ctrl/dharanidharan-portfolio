@@ -1,11 +1,11 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { ExternalLink, Github, ArrowRight, Award, Star, ChevronDown, ChevronUp } from "lucide-react"
+import { ExternalLink, Github, Star, ChevronDown, ChevronUp, Layers, CreditCard, ShieldCheck, MessageSquare } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { 
-  SiReact, SiNextdotjs, SiNodedotjs, SiMongodb, SiTailwindcss,SiVite, SiGooglepay,
-  SiTypescript, SiSocketdotio, SiStripe, SiFramer, SiPostgresql, SiGoogledrive, SiExpress, SiPostman, SiDocker, SiJenkins, SiChatbot, SiAmazonwebservices, SiJavascript
+  SiReact, SiNextdotjs, SiNodedotjs, SiMongodb, SiTailwindcss, SiVite, SiGooglepay,
+  SiTypescript, SiSocketdotio, SiStripe, SiFramer, SiPostgresql, SiGoogledrive, SiExpress, SiPostman, SiDocker, SiJenkins, SiChatbot, SiAmazonwebservices
 } from "react-icons/si"
 
 const techIcons: { [key: string]: { icon: any; color: string } } = {
@@ -22,12 +22,15 @@ const techIcons: { [key: string]: { icon: any; color: string } } = {
   "Vite": { icon: SiVite, color: "#646CFF" },
   "Google Pay": { icon: SiGooglepay, color: "#4285F4" },
   "Google Drive": { icon: SiGoogledrive, color: "#4285F4" },
-  "Express": { icon: SiExpress, color: "#828282" },
-  "Postman": { icon: SiPostman, color: "#E34C26" },
+  "Express": { icon: SiExpress, color: "#A8A8A8" },
+  "Postman": { icon: SiPostman, color: "#FF6C37" },
   "Docker": { icon: SiDocker, color: "#2496ED" },
   "Jenkins": { icon: SiJenkins, color: "#D24939" },
-  "AI": { icon: SiChatbot, color: "#4CAF50" },
+  "AI": { icon: SiChatbot, color: "#10B981" },
   "AWS": { icon: SiAmazonwebservices, color: "#FF9900" },
+  "Razorpay": { icon: CreditCard, color: "#00D4FF" },
+  "JWT": { icon: ShieldCheck, color: "#A855F7" },
+  "Olasms": { icon: MessageSquare, color: "#38BDF8" },
 };
 
 export default function Projects() {
@@ -58,186 +61,192 @@ export default function Projects() {
 
   const projects = [
     {
-      title: "Arya Vysya's Penlli Connect \u2014 Community Matrimony Platform",
-      description: "A full-stack community matrimony platform for the Arya Vysya community with Jathagam matching, real-time chat, and Razorpay payment integration.",
+      title: "Arya Vysya's Penlli Connect — Community Matrimony Platform",
+      description: "A full-stack community matrimony platform for the Arya Vysya community featuring Jathagam matching, real-time chat, and Razorpay payment integration.",
       tech: ["React", "Node.js", "Express", "Tailwind", "MongoDB", "Socket.io", "Razorpay", "JWT", "Olasms"],
       github: "",
       link: "https://penlliconnect.com",
       image: "/Matrimony project.png",
-      className: "lg:col-span-1 h-[280px]",
       featured: true
     },
     {
-      title: "Food Waste Reduction",
-      description: "A platform to reduce food waste by connecting donors with those in need.",
+      title: "Food Waste Reduction Platform",
+      description: "A digital ecosystem aimed at curbing food waste by seamlessly connecting surplus food donors with local communities and organizations in need.",
       tech: ["React", "Node.js", "Express", "Tailwind", "MongoDB"],
       github: "https://github.com/Dharani-ctrl/food-waste-reduction-client",
       link: "https://food-waste-reduction-client.vercel.app/",
-      image: "/foodwaste.png", // Make sure to add this image to your public folder!
-      className: "lg:col-span-1 h-[280px]",
+      image: "/foodwaste.png",
       featured: true
     },
     {
-      title: "Onroad Vehical BreakDown",
-      description: "A platform to connect vehicle owners with mechanics for on-road assistance.",
+      title: "Onroad Vehicle Breakdown Assistance",
+      description: "A location-aware platform connecting stranded vehicle owners with nearby mechanics for instant on-road emergency assistance.",
       tech: ["React", "Node.js", "Express", "Tailwind", "MongoDB"],
       github: "https://github.com/Dharani-ctrl/Onroad-vehical-BreakDown-client",
       link: "https://onroad-vehical-break-down-client.vercel.app",
-      image: "/onroad.png", // Make sure to add this image to your public folder!
-      className: "lg:col-span-1 h-[280px]",
+      image: "/onroad.png",
+      featured: false
     },
     {
-      title: "Online Home Appliances Services",
-      description: "A platform for online booking and repairing services for home appliances.",
+      title: "Online Home Appliances Repair Services",
+      description: "An intuitive web portal for booking professional home appliance repair, maintenance, and tracking technician schedules online.",
       tech: ["React", "Node.js", "Express", "Tailwind", "MongoDB"],
       github: "https://github.com/Dharani-ctrl/Online-Home-Appliances-client",
       link: "https://online-home-appliances-client.vercel.app/",
-      image: "/homeservice.png", // Make sure to add this image to your public folder!
-      className: "lg:col-span-1 h-[280px]",
+      image: "/homeservice.png",
+      featured: false
     },
     {
-      title: "Online Requiments portal",
-      description: "A portal for posting Job and Interview Requests and schedule them.",
+      title: "Online Recruitment & Hiring Portal",
+      description: "A streamlined job portal for posting positions, reviewing candidate applications, and scheduling candidate interviews.",
       tech: ["React", "Node.js", "Express", "Tailwind", "MongoDB"],
       github: "https://github.com/Dharani-ctrl/Recrutiment-portal-client",
       link: "https://recrutiment-portal-client.vercel.app",
-      image: "/jobportal.png", // Make sure to add this image to your public folder!
-      className: "lg:col-span-1 h-[280px]",
+      image: "/jobportal.png",
       featured: true
     },
-
     {
-      title: "AI Based CI/CD Software Delivery",
-      description: "AI improves accuracy and efficiency in software pipelines.",
+      title: "AI-Based CI/CD Software Delivery",
+      description: "Automated software delivery system leveraging AI insights for build optimization, test accuracy, and automated deployment pipelines.",
       tech: ["React", "Node.js", "Docker", "Jenkins", "AI", "AWS"],
       github: "https://github.com/Dharani-ctrl/jenkins-ci-cd-project",
       link: "#",
       image: "/CICD.png",
-      className: "lg:col-span-1 h-[280px]", 
       featured: true
     },
-    
     {
-      title: "SLMS",
-      description: "Student lab management system with real-time updates and analytics.",
+      title: "SLMS — Student Lab Management System",
+      description: "Comprehensive student lab tracking platform featuring real-time equipment booking, usage logs, and administrative analytics.",
       tech: ["React", "Node.js", "MongoDB", "Express", "Postman"],
       github: "https://github.com/Dharani-ctrl/Student-Lab-Management",
       link: "#",
       image: "/SLM.png",
-      className: "lg:col-span-1 h-[280px]",
+      featured: false
     },
     {
-      title: "E-Commerce Website",
-      description: "React UI E-commerce platform with payment integration.",
+      title: "E-Commerce Digital Storefront",
+      description: "Modern, responsive e-commerce web application featuring dynamic cart state management, checkout flows, and payment portal integrations.",
       tech: ["React", "Tailwind", "Vite", "Google Pay"],
       github: "https://github.com/Dharani-ctrl/react-card-app",
       link: "https://github.com/Dharani-ctrl/react-card-app",
       image: "/E-Com.jpg",
-      className: "lg:col-span-1 h-[280px]",
+      featured: false
     },
     {
-      title: "Backend File Upload Viewer",
-      description: "Server side file management and viewer system.",
+      title: "Backend File Upload & Document Viewer",
+      description: "Secure server-side file management infrastructure with Google Drive storage API integration and interactive document viewing capabilities.",
       tech: ["Node.js", "Express", "Google Drive", "Postman"],
       github: "https://github.com/Dharani-ctrl/Backend-Work-flow",
       link: "https://github.com/Dharani-ctrl/Backend-Work-flow",
       image: "/Server.jpg",
-      className: "lg:col-span-2 h-[280px]",
+      featured: false
     },
   ]
 
   const visibleProjects = showAllProjects ? projects : projects.slice(0, 4)
 
   return (
-    <section id="projects" className="py-24 px-4 sm:px-6 lg:px-8 bg-background relative">
+    <section id="projects" className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-background relative">
       <div className="max-w-6xl mx-auto" ref={containerRef}>
-        <div className="flex flex-col items-center mb-16 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-4">
+        <div className="flex flex-col items-center mb-12 sm:mb-16 text-center">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest mb-3">
+            Featured Portfolio
+          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-outfit tracking-tight gradient-text mb-3">
             Projects & Work
           </h2>
-          <div className="h-1 w-24 bg-primary rounded-full mb-6" />
+          <div className="h-1 w-20 bg-primary rounded-full mb-4" />
+          <p className="text-muted-foreground text-sm sm:text-base max-w-xl">
+            Real-world applications, full-stack platforms, and specialized software systems built for performance and impact.
+          </p>
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 lg:gap-8">
           {visibleProjects.map((project, idx) => (
             <div
               key={idx}
-              className={`project-card group relative rounded-2xl overflow-hidden border border-border bg-card transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(0,212,255,0.15)] hover:border-primary/50 ${project.className} ${
-                showAllProjects ? 'opacity-100 translate-y-0 scale-100 animate-in fade-in zoom-in duration-500' : 'opacity-0 translate-y-10 scale-95'
+              className={`project-card group rounded-2xl overflow-hidden border border-border/80 bg-card/60 backdrop-blur flex flex-col justify-between transition-all duration-500 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-primary/10 hover:border-primary/40 ${
+                showAllProjects ? 'opacity-100 translate-y-0 scale-100 animate-in fade-in zoom-in duration-500' : 'opacity-0 translate-y-8 scale-95'
               }`}
             >
-              {/* Full Image Layer */}
-              <div className="absolute inset-0 w-full h-full overflow-hidden bg-muted">
+              {/* Image Preview Container */}
+              <div className="relative aspect-[16/9] w-full overflow-hidden bg-muted/50 border-b border-border/60">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover opacity-80 group-hover:opacity-40 transition-all duration-700 group-hover:scale-110"
+                  className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                  onError={(e) => {
+                    // Fallback gradient background if image doesn't load
+                    (e.target as HTMLElement).style.display = 'none';
+                  }}
                 />
-                {/* Always-dark overlay on mobile, hover-enhanced on desktop */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/20 md:from-background md:via-background/80 md:to-transparent opacity-90 md:group-hover:bg-black/80 transition-all duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-60" />
+                
+                {/* Featured Badge */}
+                {project.featured && (
+                  <div className="absolute top-3 right-3 z-10">
+                    <span className="px-2.5 py-1 bg-primary text-background text-[10px] font-bold uppercase tracking-wider rounded-full flex items-center gap-1 shadow-md shadow-primary/20">
+                      <Star size={10} className="fill-background" /> Featured
+                    </span>
+                  </div>
+                )}
               </div>
 
-              {/* Badges */}
-              {project.featured && (
-                <div className="absolute top-4 right-4 z-20">
-                  <span className="px-2 py-1 bg-primary/90 text-background text-[10px] font-bold uppercase tracking-wider rounded flex items-center gap-1 shadow-lg shadow-primary/20">
-                    <Star size={10} className="fill-background" /> Featured
-                  </span>
-                </div>
-              )}
-
-              {/* Content Overlay */}
-              <div className="absolute inset-x-0 bottom-0 p-4 md:p-6 z-10 flex flex-col justify-end h-full">
-                <div className="md:translate-y-4 md:group-hover:translate-y-0 transition-transform duration-500">
-                  <h3 className="text-2xl font-bold text-foreground tracking-tight mb-2 group-hover:text-primary transition-colors">
+              {/* Content Body */}
+              <div className="p-5 sm:p-6 flex flex-col justify-between flex-1 space-y-4">
+                <div>
+                  <h3 className="text-lg sm:text-xl font-bold font-outfit text-foreground tracking-tight group-hover:text-primary transition-colors mb-2 leading-snug">
                     {project.title}
                   </h3>
                   
-                  <p className="text-muted-foreground text-sm mb-4 line-clamp-2 group-hover:line-clamp-none transition-all">
+                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed mb-4">
                     {project.description}
                   </p>
 
                   {/* Tech Stack Pills */}
-                  <div className="flex flex-wrap gap-2 mb-4">
+                  <div className="flex flex-wrap gap-1.5 pt-1">
                     {project.tech.map((t, i) => {
                       const IconData = techIcons[t];
+                      const IconComp = IconData ? IconData.icon : Layers;
+                      const iconColor = IconData ? IconData.color : "#00D4FF";
                       return (
-                        <div key={i} className="flex items-center gap-1.5 bg-secondary px-2 py-1 rounded-md border border-border">
-                          {IconData && <IconData.icon style={{ color: IconData.color }} className="text-[10px]" />}
-                          <span className="text-[10px] font-bold text-foreground/80 uppercase tracking-wider">{t}</span>
+                        <div key={i} className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-secondary/50 border border-border/60 text-foreground/90">
+                          <IconComp style={{ color: iconColor }} className="text-xs shrink-0" />
+                          <span className="text-[11px] font-semibold tracking-wide">{t}</span>
                         </div>
                       )
                     })}
                   </div>
+                </div>
 
-                  {/* Actions — always visible on mobile, hover-reveal on desktop */}
-                  <div className="flex gap-2 pt-2 border-t border-white/20 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 delay-100">
-                    {project.link && (
-                      <a 
-                        href={project.link} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="flex-1"
-                      >
-                        <Button variant="default" size="sm" className="w-full bg-primary hover:bg-primary/90 text-background gap-2">
-                          <ExternalLink size={14} /> Live Demo
-                        </Button>
-                      </a>
-                    )}
-                    {project.github && (
-                      <a 
-                        href={project.github} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="flex-1"
-                      >
-                        <Button variant="outline" size="sm" className="w-full hover:bg-black hover:text-white gap-2 border-primary/20 transition-colors">
-                          <Github size={14} /> Code
-                        </Button>
-                      </a>
-                    )}
-                  </div>
+                {/* Actions */}
+                <div className="flex gap-2.5 pt-4 border-t border-border/60">
+                  {project.link && project.link !== "#" ? (
+                    <a 
+                      href={project.link} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="flex-1"
+                    >
+                      <Button size="sm" className="w-full bg-primary hover:bg-primary/90 text-background gap-2 font-semibold text-xs sm:text-sm shadow-sm">
+                        <ExternalLink size={14} /> Live Demo
+                      </Button>
+                    </a>
+                  ) : null}
+                  
+                  {project.github ? (
+                    <a 
+                      href={project.github} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="flex-1"
+                    >
+                      <Button variant="outline" size="sm" className="w-full hover:bg-primary/10 hover:text-primary border-border hover:border-primary/40 gap-2 font-semibold text-xs sm:text-sm">
+                        <Github size={14} /> View Code
+                      </Button>
+                    </a>
+                  ) : null}
                 </div>
               </div>
             </div>
@@ -246,12 +255,12 @@ export default function Projects() {
 
         {/* Show More / Show Less Button */}
         {projects.length > 4 && (
-          <div className="mt-12 flex justify-center">
+          <div className="mt-10 sm:mt-12 flex justify-center">
             <Button
               onClick={() => setShowAllProjects(!showAllProjects)}
               variant="outline"
               size="lg"
-              className="group border-primary/30 hover:border-primary hover:bg-primary/10 transition-all duration-300"
+              className="group border-primary/30 hover:border-primary hover:bg-primary/10 transition-all duration-300 font-semibold"
             >
               {showAllProjects ? (
                 <>

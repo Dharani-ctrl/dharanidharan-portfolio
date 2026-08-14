@@ -68,19 +68,18 @@ export default function Navigation() {
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Changed justify-center to justify-between to push icon to the right */}
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-14 sm:h-16">
           
-          {/* Logo - Always visible now to balance the icon on the right */}
-          
+          {/* Logo */}
           <div className="flex-shrink-0">
             <a href="#" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-              <img src="/logo.svg" alt="Dharan.codes Logo" className="w-8 h-8 rounded-lg" />
-              <span className="text-2xl font-bold gradient-text">Dharan.codes</span>
+              <img src="/logo.svg" alt="Dharan.codes Logo" className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg" />
+              <span className="text-lg sm:text-xl font-bold gradient-text">Dharan.codes</span>
             </a>
           </div>
 
-          {/* Desktop Menu - Centered using absolute positioning or just gap in flex */}
-          <div className="hidden md:flex items-center gap-2 px-6 py-2 rounded-full border border-primary/40 bg-background/40 backdrop-blur hover-glow">
+          {/* Desktop Menu */}
+          <div className="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-primary/20 bg-background/60 backdrop-blur shadow-sm">
             {navItems.map((item) => {
               const Icon = item.icon
               const isActive = activeSection === item.id
@@ -88,26 +87,26 @@ export default function Navigation() {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 relative group ${
-                    isActive ? "bg-primary/30 text-primary" : "hover:bg-primary/20 hover:text-primary text-foreground"
+                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs lg:text-sm font-medium transition-all duration-300 relative group ${
+                    isActive ? "bg-primary/20 text-primary font-semibold" : "hover:bg-primary/10 hover:text-primary text-foreground/80"
                   }`}
                 >
-                  <Icon size={18} />
+                  <Icon size={16} />
                   <span className="hidden lg:inline">{item.label}</span>
-                  {isActive && <span className="absolute bottom-0 left-4 right-4 h-0.5 bg-primary rounded-full"></span>}
+                  {isActive && <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-primary rounded-full"></span>}
                 </button>
               )
             })}
           </div>
 
-          {/* Mobile Menu Button - Moved to right side automatically by justify-between */}
+          {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-md text-foreground hover:text-primary hover:bg-primary/10 transition-all duration-300 transform active:scale-95"
+              className="p-1.5 rounded-md text-foreground hover:text-primary hover:bg-primary/10 transition-all duration-300 transform active:scale-95"
               aria-label="Toggle menu"
             >
-              {isOpen ? <X size={28} /> : <Menu size={28} />}
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>

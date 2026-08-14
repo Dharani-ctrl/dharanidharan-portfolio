@@ -55,7 +55,7 @@ export default function Education() {
   ]
 
   return (
-    <section id="education" className="py-24 px-4 bg-background relative overflow-hidden">
+    <section id="education" className="py-12 sm:py-16 px-4 bg-background relative overflow-hidden">
       {/* Subtle background glow */}
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-600/5 blur-[120px] rounded-full pointer-events-none" />
       

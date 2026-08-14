@@ -52,7 +52,7 @@ export default function Contact() {
   }
 
   // WhatsApp Config
-  const whatsappNumber = "916385372905" 
+  const whatsappNumber = "916385372905"
   const whatsappMessage = encodeURIComponent(
     "Hi, I’d like to connect with you. "
   )
@@ -61,7 +61,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="py-24 px-4 sm:px-6 lg:px-8 bg-card/50 overflow-hidden"
+      className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-card/50 overflow-hidden"
     >
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col items-center mb-16 text-center">
@@ -79,7 +79,7 @@ export default function Contact() {
                 Connect With Me
               </h3>
               <p className="text-muted-foreground mb-8 text-lg">
-                Feel free to reach out through any of these channels.
+                Feel free to reach out through any of these ways.
                 I typically respond within 24 hours.
               </p>
 
@@ -194,11 +194,10 @@ export default function Contact() {
 
               {status && (
                 <div
-                  className={`p-4 rounded-lg flex items-center gap-3 animate-in fade-in slide-in-from-bottom-2 ${
-                    status.type === "success"
+                  className={`p-4 rounded-lg flex items-center gap-3 animate-in fade-in slide-in-from-bottom-2 ${status.type === "success"
                       ? "bg-green-500/10 text-green-500 border border-green-500/20"
                       : "bg-red-500/10 text-red-500 border border-red-500/20"
-                  }`}
+                    }`}
                 >
                   {status.type === "success" && (
                     <CheckCircle2 size={20} />

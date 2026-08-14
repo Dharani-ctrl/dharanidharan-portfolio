@@ -43,43 +43,40 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center pt-20 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden bg-background"
+      className="relative min-h-0 sm:min-h-[85vh] flex items-center pt-20 sm:pt-24 pb-8 sm:pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden bg-background"
     >
       {/* Floating dot grid background */}
-      <div 
-        className="absolute inset-0 opacity-[0.07] dark:opacity-[0.05]" 
-        style={{ 
-          backgroundImage: 'radial-gradient(var(--primary) 1px, transparent 1px)', 
+      <div
+        className="absolute inset-0 opacity-[0.07] dark:opacity-[0.05]"
+        style={{
+          backgroundImage: 'radial-gradient(var(--primary) 1px, transparent 1px)',
           backgroundSize: '30px 30px',
           animation: 'float 20s linear infinite'
-        }} 
+        }}
       />
 
-      <div className="relative z-10 max-w-6xl mx-auto w-full mt-10">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+      <div className="relative z-10 max-w-6xl mx-auto w-full">
+        <div className="grid md:grid-cols-2 gap-6 lg:gap-12 items-center">
           {/* LEFT */}
-          <div className="space-y-8">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 text-primary text-sm font-medium animate-in fade-in slide-in-from-bottom-4 duration-700">
-              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-              Welcome to my universe
-            </div>
+          <div className="space-y-4 sm:space-y-6">
+            <h1 className="animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-100 fill-mode-both">
+              <span className="text-base sm:text-xl md:text-2xl font-medium text-muted-foreground block mb-0.5 font-sans tracking-normal">
+                Hi, I'm
+              </span>
+              <span className="text-3xl sm:text-5xl md:text-6xl font-outfit font-black tracking-tight bg-gradient-to-r from-primary via-cyan-400 to-sky-400 bg-clip-text text-transparent">
+                Dharanidharan
+              </span>
+            </h1>
 
-            <div className="space-y-4">
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-100 fill-mode-both">
-                <span className="block mb-2 text-foreground">I'm Dharanidharan</span>
-
-              </h1>
-
-              <div className="h-8 animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-200 fill-mode-both">
-                <p className="text-xl md:text-2xl font-medium text-muted-foreground">
-                  <span className="gradient-text font-bold">{displayedText}</span>
-                  <span className="animate-pulse text-primary ml-1">|</span>
-                </p>
-              </div>
+            <div className="h-7 sm:h-8 animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-200 fill-mode-both">
+              <p className="text-lg sm:text-xl md:text-2xl font-medium text-muted-foreground">
+                <span className="gradient-text font-bold">{displayedText}</span>
+                <span className="animate-pulse text-primary ml-1">|</span>
+              </p>
             </div>
 
             {/* BUTTONS */}
-            <div className="flex gap-4 pt-4 flex-wrap items-center animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300 fill-mode-both">
+            <div className="flex gap-3 sm:gap-4 pt-2 sm:pt-4 flex-wrap items-center animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300 fill-mode-both">
               <Button
                 size="lg"
                 className="group bg-primary hover:bg-primary/90 text-background gap-2 border border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/50"
@@ -115,7 +112,7 @@ export default function Hero() {
               </a>
             </div>
 
-            <p className="text-sm text-muted-foreground pt-4 max-w-lg animate-in fade-in duration-1000 delay-500 fill-mode-both">
+            <p className="text-xs sm:text-sm text-muted-foreground pt-1 sm:pt-4 max-w-lg animate-in fade-in duration-1000 delay-500 fill-mode-both leading-relaxed">
               JavaScript lover | Passionate about clean code | Crafting modern web applications
             </p>
           </div>
@@ -161,9 +158,13 @@ export default function Hero() {
       </div>
 
       {/* Scroll Down Arrow */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <a href="#about" className="text-muted-foreground hover:text-primary transition-colors">
-          <ArrowRight className="rotate-90" size={24} />
+      <div className="absolute bottom-3 sm:bottom-6 left-1/2 -translate-x-1/2 animate-bounce z-20">
+        <a 
+          href="#stats" 
+          className="flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-primary/40 bg-background/80 backdrop-blur text-muted-foreground hover:text-primary hover:border-primary transition-all duration-300 shadow-[0_0_15px_rgba(0,212,255,0.2)]"
+          aria-label="Scroll down to statistics"
+        >
+          <ArrowRight className="rotate-90" size={18} />
         </a>
       </div>
     </section>

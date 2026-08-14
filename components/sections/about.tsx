@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 
 export default function About() {
   return (
-    <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-card/50 overflow-hidden">
+    <section id="about" className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-card/50 overflow-hidden">
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left */}

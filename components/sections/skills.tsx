@@ -1,36 +1,38 @@
 "use client"
 
 import { useEffect, useRef } from "react"
-import { 
+import {
   SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiHtml5, SiCss3,
-  SiNodedotjs, SiJavascript, SiPostman, SiMongodb, SiNodemon, SiExpress,
-  SiFigma, SiAdobexd, SiFramer, SiAmazonwebservices, SiDocker, SiKubernetes,
-  SiGithubactions, SiJest, SiWebpack, SiFirebase, SiVercel,
-  SiThreedotjs, SiAdobeaftereffects, SiBlender, SiGreensock, SiGit,
-  SiDotenv
+  SiNodedotjs, SiJavascript, SiPostman, SiMongodb, SiExpress,
+  SiFigma, SiAdobexd, SiFramer, SiAmazonwebservices, SiDocker,
+  SiGithubactions, SiVercel, SiThreedotjs, SiGit
 } from "react-icons/si"
-import { VscCode } from "react-icons/vsc" 
-import { Monitor, Server, Paintbrush, Cloud, Wrench } from "lucide-react"
+import { VscCode } from "react-icons/vsc"
+import { Monitor, Server, Paintbrush, Cloud } from "lucide-react"
 
 const SkillPill = ({ name, color, icon: Icon, delay }: { name: string; color: string; icon: any; delay: number }) => (
-  <div 
-    className="stagger-pill opacity-0 translate-y-8 transition-all duration-500 ease-out flex items-center gap-2 px-4 py-2 rounded-full border bg-background cursor-pointer hover:scale-105 hover:-translate-y-1 group"
-    style={{ 
-      borderColor: `${color}40`,
+  <div
+    className="stagger-pill opacity-0 translate-y-6 transition-all duration-300 ease-out flex items-center gap-2 px-3.5 py-2 rounded-xl border bg-background/80 hover:bg-background cursor-pointer hover:scale-105 hover:-translate-y-0.5 group shadow-sm"
+    style={{
+      borderColor: `${color}45`,
+      backgroundColor: `${color}0A`,
       animationDelay: `${delay}ms`,
-      boxShadow: `0 0 0 0 transparent`
     }}
     onMouseEnter={(e) => {
-      e.currentTarget.style.boxShadow = `0 0 15px ${color}40`;
+      e.currentTarget.style.boxShadow = `0 0 16px ${color}35`;
       e.currentTarget.style.borderColor = color;
+      e.currentTarget.style.backgroundColor = `${color}18`;
     }}
     onMouseLeave={(e) => {
       e.currentTarget.style.boxShadow = `0 0 0 0 transparent`;
-      e.currentTarget.style.borderColor = `${color}40`;
+      e.currentTarget.style.borderColor = `${color}45`;
+      e.currentTarget.style.backgroundColor = `${color}0A`;
     }}
   >
-    <Icon className="text-xl transition-transform duration-300 group-hover:scale-125" style={{ color }} />
-    <span className="text-sm font-medium text-foreground/80 group-hover:text-foreground transition-colors duration-300">{name}</span>
+    <Icon className="text-lg sm:text-xl shrink-0 transition-transform duration-300 group-hover:scale-110" style={{ color }} />
+    <span className="text-xs sm:text-sm font-semibold text-foreground/90 group-hover:text-foreground transition-colors">
+      {name}
+    </span>
   </div>
 )
 
@@ -48,7 +50,7 @@ export default function Skills() {
               setTimeout(() => {
                 (item as HTMLElement).style.opacity = "1";
                 (item as HTMLElement).style.transform = "translateY(0) scale(1)";
-              }, index * 200)
+              }, index * 150)
             })
 
             // Animate Pills
@@ -57,9 +59,9 @@ export default function Skills() {
               setTimeout(() => {
                 (item as HTMLElement).style.opacity = "1";
                 (item as HTMLElement).style.transform = "translateY(0)";
-              }, index * 50)
+              }, index * 40)
             })
-            
+
             observer.unobserve(entry.target)
           }
         })
@@ -74,11 +76,12 @@ export default function Skills() {
     {
       title: "Frontend Development",
       icon: Monitor,
+      count: "6 Techs",
       skills: [
         { name: "React", color: "#61DAFB", icon: SiReact },
         { name: "Next.js", color: "#FFFFFF", icon: SiNextdotjs },
         { name: "TypeScript", color: "#3178C6", icon: SiTypescript },
-        { name: "Tailwind", color: "#06B6D4", icon: SiTailwindcss },
+        { name: "Tailwind CSS", color: "#06B6D4", icon: SiTailwindcss },
         { name: "HTML5", color: "#E34C26", icon: SiHtml5 },
         { name: "CSS3", color: "#1572B6", icon: SiCss3 },
       ],
@@ -86,100 +89,108 @@ export default function Skills() {
     {
       title: "Backend Development",
       icon: Server,
+      count: "6 Techs",
       skills: [
         { name: "Node.js", color: "#339933", icon: SiNodedotjs },
+        { name: "Express.js", color: "#A8A8A8", icon: SiExpress },
+        { name: "MongoDB", color: "#47A248", icon: SiMongodb },
         { name: "JavaScript", color: "#F7DF1E", icon: SiJavascript },
         { name: "Postman", color: "#FF6C37", icon: SiPostman },
-        { name: "MongoDB", color: "#47A248", icon: SiMongodb },
-        { name: "Express", color: "#828282", icon: SiExpress },
-        { name: "dotenv", color: "#ECD53F", icon: SiDotenv },
+        { name: "REST APIs", color: "#00D4FF", icon: Server },
       ],
     },
     {
-      title: "UI/UX Design",
+      title: "UI/UX & Creative Design",
       icon: Paintbrush,
+      count: "6 Techs",
       skills: [
         { name: "Figma", color: "#F24E1E", icon: SiFigma },
         { name: "Framer", color: "#0055FF", icon: SiFramer },
-        { name: "Responsive", color: "#00D4FF", icon: SiCss3 },
+        { name: "Responsive Design", color: "#00D4FF", icon: SiCss3 },
+        { name: "Adobe XD", color: "#FF61F6", icon: SiAdobexd },
+        { name: "Wireframing", color: "#A855F7", icon: Paintbrush },
+        { name: "Three.js & Motion", color: "#38BDF8", icon: SiThreedotjs },
       ],
     },
     {
-      title: "Cloud & DevOps",
+      title: "DevOps, Tools & Cloud",
       icon: Cloud,
+      count: "6 Techs",
       skills: [
         { name: "AWS", color: "#FF9900", icon: SiAmazonwebservices },
         { name: "Docker", color: "#2496ED", icon: SiDocker },
-        { name: "CI/CD", color: "#2088FF", icon: SiGithubactions },
-        { name: "Kubernetes", color: "#326CE5", icon: SiKubernetes },
-      ],
-    },
-    {
-      title: "Tools & Technologies",
-      icon: Wrench,
-      skills: [
-        { name: "VS Code", color: "#007ACC", icon: VscCode },
-        { name: "Git", color: "#F05032", icon: SiGit },
-        { name: "Jest", color: "#C21325", icon: SiJest },
-        { name: "Webpack", color: "#8DD6F9", icon: SiWebpack },
-        { name: "Firebase", color: "#FFCA28", icon: SiFirebase },
+        { name: "Git & GitHub", color: "#F05032", icon: SiGit },
         { name: "Vercel", color: "#FFFFFF", icon: SiVercel },
+        { name: "VS Code", color: "#007ACC", icon: VscCode },
+        { name: "CI/CD Pipelines", color: "#2088FF", icon: SiGithubactions },
       ],
     },
   ]
 
-
   return (
-    <section id="skills" className="py-24 px-4 sm:px-6 lg:px-8 relative bg-background overflow-hidden" ref={sectionRef}>
-      
-      {/* Background Orbs (Removed pulse animation for scroll performance) */}
+    <section id="skills" className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 relative bg-background overflow-hidden" ref={sectionRef}>
+      {/* Subtle Background Glow */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/5 rounded-full blur-[120px]" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-blue-500/5 rounded-full blur-[120px]" />
+        <div className="absolute top-[10%] left-[-5%] w-[35%] h-[35%] bg-primary/5 rounded-full blur-[120px]" />
+        <div className="absolute bottom-[10%] right-[-5%] w-[35%] h-[35%] bg-cyan-500/5 rounded-full blur-[120px]" />
       </div>
 
-      <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col items-center mb-16 text-center stagger-category opacity-0 translate-y-10 transition-all duration-1000">
-          <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="flex flex-col items-center mb-12 sm:mb-16 text-center stagger-category opacity-0 translate-y-8 transition-all duration-700">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest mb-3">
+            Technical Stack
+          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-outfit tracking-tight gradient-text mb-3">
             Skills & Expertise
           </h2>
-          <div className="h-1 w-24 bg-primary rounded-full mb-6" />
-          <p className="text-muted-foreground max-w-2xl">
-            A specialized stack focused on modern performance and user-centric design.
+          <div className="h-1 w-20 bg-primary rounded-full mb-4" />
+          <p className="text-muted-foreground text-sm sm:text-base max-w-xl">
+            A specialized full-stack ecosystem built for modern performance, security, and exceptional user experience.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+        {/* Balanced 2x2 Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {skillCategories.map((category, idx) => {
-            const Icon = category.icon
-            // Calculate a starting pill index based on previous categories for global staggering
+            const CategoryIcon = category.icon
             const startingPillIndex = skillCategories.slice(0, idx).reduce((acc, cat) => acc + cat.skills.length, 0);
-            
-            return (
-              <div 
-                key={idx} 
-                className="stagger-category opacity-0 translate-y-10 scale-95 transition-all duration-1000 ease-out p-8 rounded-3xl bg-secondary/5 border border-white/5 hover:border-primary/20 hover:bg-secondary/10 transition-colors group/card"
-              >
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="p-3 rounded-xl bg-primary/10 text-primary group-hover/card:bg-primary group-hover/card:text-background transition-colors duration-500">
-                    <Icon size={24} />
-                  </div>
-                  <h3 className="text-xl font-bold tracking-tight">{category.title}</h3>
-                </div>
 
-                <div className="flex flex-wrap gap-3">
-                  {category.skills.map((skill, skillIdx) => {
-                    const globalIdx = startingPillIndex + skillIdx;
-                    return (
-                      <SkillPill 
-                        key={skill.name} 
-                        name={skill.name} 
-                        color={skill.color} 
-                        icon={skill.icon} 
-                        delay={globalIdx * 50}
-                      />
-                    );
-                  })}
+            return (
+              <div
+                key={idx}
+                className="stagger-category opacity-0 translate-y-8 scale-[0.98] transition-all duration-700 ease-out p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-card/60 border border-border/80 hover:border-primary/40 backdrop-blur shadow-xl hover:shadow-primary/5 flex flex-col justify-between group/card"
+              >
+                <div>
+                  {/* Category Header */}
+                  <div className="flex items-center justify-between gap-4 mb-6 pb-4 border-b border-border/60">
+                    <div className="flex items-center gap-3">
+                      <div className="p-2.5 sm:p-3 rounded-xl bg-primary/10 border border-primary/20 text-primary group-hover/card:bg-primary group-hover/card:text-background transition-colors duration-500 shrink-0">
+                        <CategoryIcon size={22} />
+                      </div>
+                      <h3 className="text-lg sm:text-xl font-bold font-outfit tracking-tight text-foreground">
+                        {category.title}
+                      </h3>
+                    </div>
+                    <span className="text-[11px] font-bold px-2.5 py-1 rounded-full bg-primary/10 text-primary border border-primary/20">
+                      {category.count}
+                    </span>
+                  </div>
+
+                  {/* Skill Pills */}
+                  <div className="flex flex-wrap gap-2.5 sm:gap-3">
+                    {category.skills.map((skill, skillIdx) => {
+                      const globalIdx = startingPillIndex + skillIdx;
+                      return (
+                        <SkillPill
+                          key={skill.name}
+                          name={skill.name}
+                          color={skill.color}
+                          icon={skill.icon}
+                          delay={globalIdx * 40}
+                        />
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
             )

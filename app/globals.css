@@ -78,6 +78,8 @@
 @theme inline {
   --font-sans: var(--font-sans), system-ui, sans-serif;
   --font-heading: var(--font-heading), "Space Grotesk", system-ui, sans-serif;
+  --font-outfit: var(--font-outfit), "Outfit", system-ui, sans-serif;
+  --font-syne: var(--font-syne), "Syne", system-ui, sans-serif;
   --font-mono: var(--font-mono), monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
